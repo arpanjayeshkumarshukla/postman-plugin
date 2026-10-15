@@ -182,15 +182,19 @@ test consumers without waiting for the real service to be ready or available.
 
 The mock stays local until you choose to push and deploy it. When teammates or
 external systems need access, the same mock can become a durable hosted URL
-without rebuilding it in another tool.
+without rebuilding it in another tool. Pushed to the service's own workspace,
+it's the mock other teams' simulations pull first.
 
 ### Develop against simulated dependencies
 
-The [`api-simulation`](skills/api-simulation/) skill is the local loop for a
-service change: find every dependency the service calls, mock each one (reusing
-the owning team's mock when they publish one), serve them on one port from one
-`.sim.yaml`, run the real service against them, test, and push. It needs
-Postman CLI 1.70.0 or later:
+The [`api-simulation`](skills/api-simulation/) skill runs your code (a service
+you're changing, a frontend, a test suite or a demo) for real against stand-ins
+for the HTTP services it calls, served together on one port from one
+`.sim.yaml`. Each stand-in is the owning team's mock when they publish one.
+It reuses an existing `.sim.yaml`, proves a change with a request through the
+changed path, and answers "what happens if X goes down" by running each failure.
+Pushing the simulation is optional and needs your approval. It needs Postman CLI
+1.70.0 or later:
 
 ```bash
 postman simulation run postman/simulations/orders-dev.sim.yaml --port 4900

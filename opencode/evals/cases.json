@@ -35,6 +35,27 @@
     ]
   },
   {
+    "id": "api-simulation-implicit",
+    "prompt": "Add a cancel endpoint to the orders service that releases the reservation in the inventory service and refunds the payment, and make sure it works end to end before I open the PR.",
+    "expected": [
+      "api-simulation"
+    ]
+  },
+  {
+    "id": "api-simulation-outage",
+    "prompt": "If the payments service goes down, what happens to an order placed through our orders service?",
+    "expected": [
+      "api-simulation"
+    ]
+  },
+  {
+    "id": "api-mocking-producer",
+    "prompt": "The mobile team wants to start building against our new loyalty API this week, but the backend won't be ready for a month. Give them something that behaves like it.",
+    "expected": [
+      "api-mocking"
+    ]
+  },
+  {
     "id": "api-testing",
     "prompt": "Run this Postman collection and verify that the API still satisfies its assertions.",
     "expected": [
@@ -79,6 +100,13 @@
   {
     "id": "api-discovery-service-dependency",
     "prompt": "I'm in the orders service repository and need to inspect and use the payments collection from another Postman workspace without changing this repository's workspace binding.",
+    "expected": [
+      "api-discovery"
+    ]
+  },
+  {
+    "id": "api-discovery-lookup-no-simulation",
+    "prompt": "Does the inventory service already have an endpoint that returns stock levels? Just check, don't change anything.",
     "expected": [
       "api-discovery"
     ]
