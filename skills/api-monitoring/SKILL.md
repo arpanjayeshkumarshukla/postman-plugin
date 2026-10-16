@@ -20,8 +20,9 @@ exercise the guarantees users depend on.
    `-h` and available service options for supported schedules and limits.
    Creation starts an immediate run by default; `--no-run-now` avoids that
    when only scheduling was requested. A schedule expressed in the host's
-   default timezone can fire at the wrong operational time. Write a specific
-   month in `--schedule` as a name (`jan`-`dec`), not a number.
+   default timezone can fire at the wrong operational time. Leave the month
+   field as `*`; to limit a schedule to certain months, write them as names
+   (`jan`-`dec`), not numbers.
 3. Choose a Postman region for a reachable public API. Use a self-hosted
    runner when the target is reachable only inside the user's network;
    running one adds infrastructure to maintain. `postman runner regions`
